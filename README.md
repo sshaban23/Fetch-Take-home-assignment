@@ -1,6 +1,4 @@
 # Fetch-Take-home-assignment
-<<<<<<< HEAD
-=======
 
 **Question 1: "Are there any data quality issues present?"**
 
@@ -29,4 +27,3 @@ Also, "SCAN_DATE" field and "PURCHASE_DATE" field in the TRANSACTION table are c
 
 
 
->>>>>>> 83a7af3ea9e14eb12b2f6317c313e0dae8d8422f
