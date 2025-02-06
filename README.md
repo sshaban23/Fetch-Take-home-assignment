@@ -30,13 +30,21 @@ Also, "SCAN_DATE" field and "PURCHASE_DATE" field in the TRANSACTION table are c
 **SQL CODE:**
 
 SELECT p.BRAND, COUNT(*) AS total_receipts
+
 FROM TRANSACTIONS t
+
 JOIN USERS u ON t.user_id = u.ID
+
 JOIN PRODUCTS p ON t.BARCODE = p.BARCODE
+
 WHERE (strftime('%Y', 'now') - strftime('%Y', u.BIRTH_DATE)) >= 21
+
 GROUP BY p.brand
+
 ORDER BY total_receipts DESC
+
 LIMIT 5;
+
 
 Answer: 
 1 - COCA-COLA
@@ -49,22 +57,33 @@ Answer:
 **QUESTION 4: What are the top 5 brands by sales among users that have had their account for at least six months?**
 
 **SQL CODE**
+
 SELECT p.brand, SUM(t.FINAL_SALE) AS total_sales
+
 FROM TRANSACTIONS t
+
 JOIN USERS u ON t.user_id = u.ID
+
 JOIN PRODUCTS p ON t.BARCODE = p.BARCODE
+
 WHERE (strftime('%Y', 'now') - strftime('%Y', u.CREATED_DATE)) * 12 +
+
       (strftime('%m', 'now') - strftime('%m', u.CREATED_DATE)) >= 6
+      
 GROUP BY p.brand
+
 ORDER BY total_sales DESC
+
 LIMIT 5;
 
 Answer: 
+
 1 - COCA-COLA -- 2592.1
 2 - ANNIE'S HOMEGROWN GROCERY -- 2383.92
 3 - DOVE -- 2327.47
 4 - BAREFOOT -- 2284.59
 5 - ORIBE -- 2085.93
+
 
 
 **QUESTION 5: Who are Fetch’s power users?** 
